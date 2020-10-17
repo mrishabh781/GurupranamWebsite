@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap.css')}}">
+  <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+  <title>Quiz Login | GURUPRANAM</title>
+</head>
+
+<body id="home" data-spy="scroll" data-target="#main-nav">
+  <nav class="navbar navbar-expand-md navbar-light fixed-top py-4" id="main-nav">
+    <div class="container">
+      <a href="/" class="navbar-brand">
+        <img src="{{url_for('static',filename='tint_logo.png')}}" width="50" height="50" alt="">
+        <h3 class="d-inline align-middle">Department of IT,TINT</h3>
+      </a>
+      <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a href="http://tintit.co.in" class="nav-link">Back to Homepage</a>
+          </li>
+          <li class="nav-item">
+            <a href="" class="nav-link"></a>
+          </li>
+         
+        </ul>
+      </div>
+    </div>
+  </nav>
+<br>
+<center><h2 style="color:red">{{message}}</h2></center>
+
+  <div class="container py-5 shade">
+    <form action="/quiz", method="post">
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Your name</label>
+          <input type="text" class="form-control" id="exampleFormControlInput1" name="u_name" placeholder="Enter Your Name">
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">Example select</label>
+          <select name="group" class="form-control">
+            <option>Select a Group</option>
+            <option value="A">Group A</option>
+            <option value="B">Group B</option>
+            
+          </select>
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Group Password</label>
+            <input type="password" name="g_code" class="form-control" id="exampleFormControlInput1" placeholder="Enter Group Password">
+          </div>
+       
+       <div>
+           <button class="btn btn-primary btn-block">Submit</button>
+       </div>
+      </form>
+  </div>
+
+
+  
+  
+  <footer id="main-footer"class="text-white pb-2" style="background-color: #020100;">
+    <div class="container">
+      <div class="row">
+        <div class="col text-center ">
+          <h5 style="margin:0;">Techno|IT Department</h5>
+          <p  style="margin:0;">Copyright &copy;
+              <span id="year"></span>
+          </p>
+        </div>
+      </div>
+      <div class="row ">
+        <div class="col text-center ">
+  
+  
+  
+          <div class="d-inline-block mx-2">
+            <a href="#" class=" text-white">
+              <i class="fab fa-facebook"></i>
+            </a>
+          </div>
+          <div class="d-inline-block mx-2 ">
+            <a href="#" class="text-white">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </div>
+          <div class="d-inline-block mx-2 text-white">
+            <a href="#" class="text-white">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  
+  </footer>
+
+
+  <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+    crossorigin="anonymous"></script>
+
+  <script>
+    // Get the current year for the copyright
+    $('#year').text(new Date().getFullYear());
+
+    // Init Scrollspy
+    $('body').scrollspy({ target: '#main-nav' });
+
+    // Smooth Scrolling
+    $("#main-nav a").on('click', function (event) {
+      if (this.hash !== "") {
+        event.preventDefault();
+
+        const hash = this.hash;
+
+        $('html, body').animate({
+          scrollTop: $(hash).offset().top
+        }, 800, function () {
+
+          window.location.hash = hash;
+        });
+      }
+    });
+  </script>
+</body>
+
+</html>
